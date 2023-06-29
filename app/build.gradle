@@ -26,12 +26,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    viewBinding{
+        enabled true
     }
 }
 
@@ -60,7 +66,6 @@ dependencies {
 
     // Navigation
     implementation libs.navigation.fragment
-    implementation libs.navigation.fragment.ktx
     implementation libs.navigation.ui
 
     implementation libs.gson
