@@ -1,6 +1,6 @@
 [versions]
 android-gradle-plugin = "8.0.2"
-kotlin-android-version = "1.7.20"
+kotlin-android-version = "1.8.21"
 
 constraintlayout-version = "2.1.4"
 core-ktx-version = "1.10.1"
@@ -9,17 +9,17 @@ material-version = "1.9.0"
 activity-version = "1.7.2"
 fragment-version = "1.6.0"
 
-coroutines-version = "1.7.1"
+coroutines-version = "1.7.2"
 lifecycle-version = "2.6.1"
 
 hilt-version = "2.46.1"
 hilt-complie-version = "1.0.0"
 navigation-version = "2.6.0"
-okhttp3-version = "4.4.0"
+okhttp3-version = "5.0.0-alpha.11"
 retrofit-version = "2.9.0"
-gson-version = "2.9.1"
-coil-version = "2.2.2"
-chart-version = "3.10.1"
+gson-version = "2.10.1"
+coil-version = "2.4.0"
+chart-version = "3.11.0"
 soup-version = "1.16.1"
 
 # Unit test
