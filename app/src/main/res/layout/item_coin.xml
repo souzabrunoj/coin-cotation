@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="4dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:background="@drawable/bg_round"
+    android:padding="4dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_crypto_item_coin"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/white"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/CircleImageStyle" />
+
+    <TextView
+        android:id="@+id/tv_name_item_coin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/transparent"
+        android:fontFamily="sans-serif-light"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/tv_symbol_item_coin"
+        app:layout_constraintStart_toEndOf="@id/iv_crypto_item_coin"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Name" />
+
+    <TextView
+        android:id="@+id/tv_symbol_item_coin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@color/transparent"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@id/tv_price_item_coin"
+        app:layout_constraintStart_toStartOf="@id/tv_name_item_coin"
+        app:layout_constraintTop_toBottomOf="@id/tv_name_item_coin"
+        tools:text="Symbol" />
+
+    <TextView
+        android:id="@+id/tv_price_item_coin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:background="@color/transparent"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_name_item_coin"
+        app:layout_constraintTop_toBottomOf="@id/tv_symbol_item_coin"
+        tools:text="Price" />
+
+    <com.db.williamchart.view.LineChartView
+        android:id="@+id/lc_line_chart_item_coin"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="8dp"
+        app:chart_axis="none"
+        app:chart_gridEffect="dotted"
+        app:chart_labelsColor="#13232c"
+        app:chart_labelsSize="8sp"
+        app:chart_lineColor="#FFF176"
+        app:chart_lineThickness="0.5dp"
+        app:chart_smoothLine="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
