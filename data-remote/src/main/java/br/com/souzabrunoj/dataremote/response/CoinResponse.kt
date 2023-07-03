@@ -1,4 +1,4 @@
-package br.com.souzabrunoj.coincotation.dataRemote.response
+package br.com.souzabrunoj.dataremote.response
 
 import com.google.gson.annotations.SerializedName
 

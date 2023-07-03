@@ -1,6 +1,19 @@
 apply plugin: 'kotlin'
 
 dependencies {
+
+    implementation libs.gson
+
+    //Retrofit
+    implementation libs.retrofit
+    implementation libs.retrofit.converter
+
+    //OkHttp
+    implementation libs.okhttp3
+    implementation libs.okhttp3.interceptor
+
+    //working-with-HTML
+    implementation libs.soup
 }
 
 sourceCompatibility = JavaVersion.VERSION_17
