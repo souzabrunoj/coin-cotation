@@ -1,4 +1,4 @@
-package br.com.souzabrunoj.coincotation
+package br.com.souzabrunoj.coinquotation
 
 import org.junit.Test
 

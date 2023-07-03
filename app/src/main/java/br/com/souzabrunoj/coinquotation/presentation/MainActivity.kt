@@ -1,9 +1,9 @@
-package br.com.souzabrunoj.coincotation.presentation
+package br.com.souzabrunoj.coinquotation.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
-import br.com.souzabrunoj.coincotation.R
+import br.com.souzabrunoj.coinquotation.R
 
 class MainActivity : AppCompatActivity() {
 
