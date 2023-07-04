@@ -1,5 +1,7 @@
 package br.com.souzabrunoj.dataremote.factory
 
+import android.content.Context
+import br.com.souzabrunoj.dataremote.utils.ConnectivityInterceptor
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
@@ -32,7 +34,7 @@ object ServiceClientFactory {
             else -> this
         }
 
-    fun createOkHttpClient(): OkHttpClient {
+    fun createOkHttpClient(context: Context): OkHttpClient {
         val clientBuilder = OkHttpClient.Builder()
 
         with(clientBuilder) {
@@ -41,7 +43,9 @@ object ServiceClientFactory {
             writeTimeout(TIMEOUT, TimeUnit.SECONDS)
         }
 
-        clientBuilder.addInterceptor(createHttpLoggingInterceptor())
+        clientBuilder
+            .addInterceptor(createHttpLoggingInterceptor())
+            .addInterceptor(ConnectivityInterceptor(context))
 
         return clientBuilder.build()
     }
@@ -65,3 +69,5 @@ object ServiceClientFactory {
         }
     }
 }
+
+

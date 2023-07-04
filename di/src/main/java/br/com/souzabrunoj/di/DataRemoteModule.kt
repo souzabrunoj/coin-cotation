@@ -1,5 +1,6 @@
 package br.com.souzabrunoj.di
 
+import android.content.Context
 import br.com.souzabrunoj.dataremote.service.ApiService
 import br.com.souzabrunoj.dataremote.factory.ServiceClientFactory
 import br.com.souzabrunoj.dataremote.factory.ServiceClientFactory.createClient
@@ -8,6 +9,7 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import javax.inject.Singleton
@@ -19,7 +21,7 @@ object DataRemoteModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient = ServiceClientFactory.createOkHttpClient()
+    fun provideOkHttpClient(@ApplicationContext context: Context): OkHttpClient = ServiceClientFactory.createOkHttpClient(context)
 
     @Provides
     @Singleton
