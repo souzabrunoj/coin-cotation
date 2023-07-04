@@ -23,10 +23,9 @@ class CoinQuotationViewModel @Inject constructor(private val coinQuotationUseCas
     fun init() {
         viewModelScope.launch {
             _coins.postLoading()
-            coinQuotationUseCase.invoke(
-                params = "eur",
-                onSuccess = { _coins.postSuccess(it) },
-                onFailure = { _coins.postFailure(it) })
+            coinQuotationUseCase.getCryptoQuotation(coin = "eur")
+                .onSuccess { _coins.postSuccess(it) }
+                .onFailure { _coins.postFailure(it) }
         }
     }
 }
