@@ -1,7 +1,10 @@
 apply plugin: 'kotlin'
 
 dependencies {
-    implementation(project(":data-remote"))
+
+    implementation libs.coroutines.core
+    implementation libs.coroutines.android
+    implementation libs.coroutines.adapter
 }
 
 sourceCompatibility = JavaVersion.VERSION_17

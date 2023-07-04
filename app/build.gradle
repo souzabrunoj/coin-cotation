@@ -50,6 +50,7 @@ android {
 dependencies {
 
     implementation(project(":domain"))
+    implementation(project(":di"))
 
     implementation libs.constraintlayout
     implementation libs.androidx.core
@@ -85,5 +86,4 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
-
 }

@@ -2,7 +2,7 @@ package br.com.souzabrunoj.dataremote.response
 
 import com.google.gson.annotations.SerializedName
 
-data class CoinResponseItem(
+data class CoinItemResponse(
     @SerializedName("ath")
     val ath: Double?,
     @SerializedName("ath_change_percentage")
@@ -48,9 +48,9 @@ data class CoinResponseItem(
     @SerializedName("price_change_percentage_24h")
     val priceChangePercentage24h: Double?,
     @SerializedName("roi")
-    val roi: Roi?,
+    val roi: RoiResponse?,
     @SerializedName("sparkline_in_7d")
-    val sparkline: Sparkline?,
+    val sparkline: SparklineResponse?,
     @SerializedName("symbol")
     val symbol: String?,
     @SerializedName("total_supply")
@@ -59,7 +59,7 @@ data class CoinResponseItem(
     val totalVolume: Double?
 )
 
-data class Roi(
+data class RoiResponse(
     @SerializedName("currency")
     val currency: String?,
     @SerializedName("percentage")
@@ -69,7 +69,7 @@ data class Roi(
 )
 
 
-data class Sparkline(
+data class SparklineResponse(
     @SerializedName("price")
     val price: List<Double?>?
 )

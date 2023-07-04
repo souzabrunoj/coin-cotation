@@ -2,7 +2,13 @@ apply plugin: 'kotlin'
 
 dependencies {
 
+    implementation(project(":domain"))
+
     implementation libs.gson
+
+    //Coroutines
+    implementation libs.coroutines.adapter
+    implementation libs.coroutines.core
 
     //Retrofit
     implementation libs.retrofit

@@ -16,3 +16,4 @@ rootProject.name = "Coin Quotation"
 include ':app'
 include ':domain'
 include ':data-remote'
+include ':di'

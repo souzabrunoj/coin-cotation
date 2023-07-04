@@ -10,6 +10,7 @@ activity-version = "1.7.2"
 fragment-version = "1.6.0"
 
 coroutines-version = "1.7.2"
+retrofit-coroutines-version = "0.9.2"
 lifecycle-version = "2.6.1"
 
 hilt-version = "2.46.1"
@@ -41,6 +42,7 @@ fragment = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "
 # Coroutines
 coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines-version" }
 coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines-version" }
+coroutines-adapter = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlin-coroutines-adapter", version.ref = "retrofit-coroutines-version" }
 
 # Lifecycle
 lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-version" }
