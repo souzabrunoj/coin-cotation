@@ -1,5 +1,6 @@
 package br.com.souzabrunoj.dataremote.utils
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
@@ -12,6 +13,7 @@ import java.io.IOException
 class ConnectivityInterceptor(private val context: Context) : Interceptor {
 
     companion object {
+        @SuppressLint("MissingPermission")
         @JvmStatic
         fun isOnline(context: Context): Boolean {
             val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
