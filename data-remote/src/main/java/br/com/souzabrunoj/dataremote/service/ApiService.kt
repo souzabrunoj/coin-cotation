@@ -7,6 +7,6 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("coin/markets?sparkline=true")
+    @GET("coins/markets?sparkline=true")
     suspend fun getCoinQuotation(@Query("vs_currency") coin: String): Response<List<CoinItemResponse>>
 }
