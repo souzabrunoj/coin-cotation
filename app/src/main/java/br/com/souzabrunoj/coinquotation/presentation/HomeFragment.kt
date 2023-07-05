@@ -1,11 +1,11 @@
 package br.com.souzabrunoj.coinquotation.presentation
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import br.com.souzabrunoj.coinquotation.adapter.CoinAdapter
 import br.com.souzabrunoj.coinquotation.databinding.FragmentHomeBinding
@@ -31,27 +31,56 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
         setupObservers()
-        viewModel.init()
+        setupListeners()
+        viewModel.getCoinQuotation()
+    }
+
+    private fun setupListeners() {
+        binding.btRetryHomeFragment.setOnClickListener {
+            viewModel.getCoinQuotation()
+            binding.btRetryHomeFragment.isVisible = false
+        }
+
+        binding.srSwipeRefreshHomeFragment.setOnRefreshListener {
+            binding.btRetryHomeFragment.isVisible = false
+            viewModel.getCoinQuotation(false)
+        }
     }
 
     private fun setupObservers() {
         viewModel.coins.handleWithFlow(
             lifecycleOwner = viewLifecycleOwner,
-            onLoading = { binding.pbLoadingHomeFragment.isVisible = true },
+            onLoading = { binding.pbLoadingHomeFragment.isVisible = it },
             onSuccess = ::handelCoinQuotation,
-            onFailure = { Snackbar.make(binding.root, it.message.orEmpty(), Snackbar.LENGTH_SHORT).show() },
-            onComplete = { binding.pbLoadingHomeFragment.isVisible = false }
+            onFailure = ::handleError,
+            onComplete = ::handleOnCompleteRequest
         )
     }
 
     private fun handelCoinQuotation(list: List<Coin>) {
         adapter.differ.submitList(list)
         binding.pbLoadingHomeFragment.isVisible = false
+        binding.rvCoinListHomeFragment.isVisible = true
     }
 
     private fun setupRecyclerView() {
         binding.rvCoinListHomeFragment.apply {
             adapter = this@HomeFragment.adapter
+        }
+    }
+
+    private fun handleError(error: Throwable) {
+        Snackbar.make(binding.root, error.message.orEmpty(), Snackbar.LENGTH_SHORT).show()
+        binding.apply {
+            btRetryHomeFragment.isVisible = true
+            rvCoinListHomeFragment.isVisible = false
+        }
+    }
+
+    private fun handleOnCompleteRequest() {
+        binding.apply {
+            srSwipeRefreshHomeFragment.isRefreshing = false
+            pbLoadingHomeFragment.isVisible = false
         }
     }
 

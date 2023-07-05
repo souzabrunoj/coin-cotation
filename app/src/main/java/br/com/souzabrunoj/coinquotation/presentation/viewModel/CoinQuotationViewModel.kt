@@ -20,9 +20,9 @@ class CoinQuotationViewModel @Inject constructor(private val coinQuotationUseCas
     private val _coins = MutableLiveData<ViewState<List<Coin>>>()
     val coins: LiveData<ViewState<List<Coin>>> = _coins
 
-    fun init() {
+    fun getCoinQuotation(showLoading: Boolean = true) {
         viewModelScope.launch {
-            _coins.postLoading()
+            _coins.postLoading(showLoading)
             coinQuotationUseCase.getCryptoQuotation(coin = "eur")
                 .onSuccess { _coins.postSuccess(it) }
                 .onFailure { _coins.postFailure(it) }
