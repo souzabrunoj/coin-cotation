@@ -58,6 +58,7 @@ dependencies {
     implementation libs.material
     implementation libs.activity
     implementation libs.fragment
+    implementation libs.swiperefreshlayout
 
     // Coroutines
     implementation libs.coroutines.android
