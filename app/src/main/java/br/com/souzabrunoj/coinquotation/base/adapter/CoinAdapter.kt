@@ -1,4 +1,4 @@
-package br.com.souzabrunoj.coinquotation.adapter
+package br.com.souzabrunoj.coinquotation.base.adapter
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -57,8 +57,8 @@ class CoinAdapter(private val onClick: onItemClick) : RecyclerView.Adapter<CoinA
                 ivCryptoItemCoin.load(item.image) {
                     crossfade(true)
                     crossfade(500)
-                    placeholder(R.drawable.round_currency_bitcoin)
-                    error(R.drawable.round_currency_bitcoin)
+                    placeholder(R.drawable.ic_bitcoin)
+                    error(R.drawable.ic_bitcoin)
                 }
 
                 lcLineChartItemCoin.gradientFillColors = intArrayOf(Color.parseColor("#2a9085"), Color.TRANSPARENT)
