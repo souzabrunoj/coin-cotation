@@ -1,10 +1,14 @@
 package br.com.souzabrunoj.di
 
+import br.com.souzabrunoj.dataremote.repository.CoinDetailsRepositoryImpl
 import br.com.souzabrunoj.dataremote.repository.CoinQuotationRepositoryImpl
 import br.com.souzabrunoj.dataremote.service.ApiService
+import br.com.souzabrunoj.domain.repository.CoinDetailsRepository
 import br.com.souzabrunoj.domain.repository.CoinQuotationRepository
 import br.com.souzabrunoj.domain.useCase.CoinQuotationUseCase
 import br.com.souzabrunoj.domain.useCase.CoinQuotationUseCaseImpl
+import br.com.souzabrunoj.domain.useCase.details.CoinDetailsUseCase
+import br.com.souzabrunoj.domain.useCase.details.CoinDetailsUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,7 +22,7 @@ object DomainModule {
 
     @Provides
     @Singleton
-    fun provideCoinRepository(service: ApiService): CoinQuotationRepository {
+    fun provideCoinQuotationRepository(service: ApiService): CoinQuotationRepository {
         return CoinQuotationRepositoryImpl(service)
     }
 
@@ -26,5 +30,17 @@ object DomainModule {
     @Singleton
     fun provideCoinQuotationUseCase(repository: CoinQuotationRepository): CoinQuotationUseCase {
         return CoinQuotationUseCaseImpl(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCoinDetailsRepository(service: ApiService): CoinDetailsRepository {
+        return CoinDetailsRepositoryImpl(service)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCoinDetailsUseCase(repository: CoinDetailsRepository): CoinDetailsUseCase {
+        return CoinDetailsUseCaseImpl(repository)
     }
 }
