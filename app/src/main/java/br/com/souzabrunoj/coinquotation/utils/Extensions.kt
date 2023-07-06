@@ -6,6 +6,7 @@ private val formatter2= DecimalFormat("##.##")
 private val formatter3= DecimalFormat("##.###")
 
 fun Double.roundToThreeDecimals() = formatter3.format(this).toString()
+fun Double.roundToTwoDecimals() = formatter2.format(this).toString()
 
 fun List<Double?>?.toDoubleFloatPairs(): List<Pair<String, Float>> {
     return this!!.map { d ->

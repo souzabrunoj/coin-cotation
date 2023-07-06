@@ -36,6 +36,6 @@ fun <T> MutableLiveData<ViewState<T>>.postSuccess(data: T) = postValue(ViewState
 
 fun <T> MutableLiveData<ViewState<T>>.postFailure(throwable: Throwable) = postValue(ViewState(status = ERROR, throwable = throwable))
 
-fun <T> MutableLiveData<ViewState<T>>.postLoading(showLoading: Boolean) = postValue(ViewState(status = LOADING, showLoading = showLoading))
+fun <T> MutableLiveData<ViewState<T>>.postLoading(showLoading: Boolean = true) = postValue(ViewState(status = LOADING, showLoading = showLoading))
 
 fun <T> MutableLiveData<ViewState<T>>.postNeutral() = postValue(ViewState(status = NEUTRAL))
