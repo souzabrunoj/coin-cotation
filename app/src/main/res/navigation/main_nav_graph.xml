@@ -10,4 +10,24 @@
         android:name="br.com.souzabrunoj.coinquotation.presentation.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+
+    <action
+        android:id="@+id/from_coin_home_to_coin_details_fragment"
+        app:destination="@id/coin_details_fragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+
+    <fragment
+        android:id="@+id/coin_details_fragment"
+        android:name="br.com.souzabrunoj.coinquotation.presentation.ui.CoinDetailsFragment"
+        android:label="fragment_coin_details"
+        tools:layout="@layout/fragment_coin_details">
+
+        <argument
+            android:name="coin_id"
+            app:argType="string" />
+
+    </fragment>
 </navigation>
