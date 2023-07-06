@@ -36,7 +36,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:visibility="visible" />
 
-        <androidx.core.widget.ContentLoadingProgressBar
+        <ProgressBar
             android:id="@+id/pb_loading_home_fragment"
             style="?android:attr/progressBarStyleInverse"
             android:layout_width="wrap_content"
