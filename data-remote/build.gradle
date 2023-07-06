@@ -48,7 +48,4 @@ dependencies {
     //OkHttp
     implementation libs.okhttp3
     implementation libs.okhttp3.interceptor
-
-    //working-with-HTML
-    implementation libs.soup
 }

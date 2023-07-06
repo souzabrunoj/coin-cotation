@@ -60,8 +60,6 @@ dependencies {
     implementation libs.fragment
     implementation libs.swiperefreshlayout
 
-    implementation libs.soup
-
     // Coroutines
     implementation libs.coroutines.android
     implementation libs.coroutines.core
