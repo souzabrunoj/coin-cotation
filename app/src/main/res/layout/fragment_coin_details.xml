@@ -49,6 +49,7 @@
                     android:id="@+id/iv_coin_logo_coin_details_fragment"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    tools:ignore="contentDescription"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
