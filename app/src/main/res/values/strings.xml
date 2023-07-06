@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Coin Quotation</string>
     <string name="retry">Retry</string>
+    <string name="categories">Categories:</string>
+    <string name="genesis_date">GenesisDate:</string>
+    <string name="website">Website:</string>
+    <string name="description">Description:</string>
+    <string name="include_7_days_data">Include 7 days data:</string>
+    <string name="number_string_template">%s%%</string>
+    <string name="symbol_string_template">%1$s [ %2$s ]</string>
 </resources>
