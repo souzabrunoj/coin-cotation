@@ -7,5 +7,6 @@
     <string name="description">Description:</string>
     <string name="include_7_days_data">Include 7 days data:</string>
     <string name="number_string_template">%s%%</string>
+    <string name="hyperlink_string_template"><u>%s%%</u></string>
     <string name="symbol_string_template">%1$s [ %2$s ]</string>
 </resources>

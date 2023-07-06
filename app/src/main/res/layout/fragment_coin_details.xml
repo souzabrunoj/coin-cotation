@@ -95,6 +95,7 @@
                     app:layout_constraintBottom_toBottomOf="@id/tv_change_percentage_coin_details_fragment"
                     app:layout_constraintStart_toEndOf="@id/tv_change_percentage_coin_details_fragment"
                     app:layout_constraintTop_toTopOf="@id/tv_change_percentage_coin_details_fragment"
+                    tools:ignore="contentDescription"
                     tools:src="@drawable/ic_arrow_drop_up" />
 
 
@@ -216,9 +217,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:textColor="@color/white"
+                android:textColor="@color/hyperlink"
                 app:layout_constraintBaseline_toBaselineOf="@+id/tv_link_title_coin_details_fragment"
-                app:layout_constraintStart_toEndOf="@id/tv_link_title_coin_details_fragment" />
+                app:layout_constraintStart_toEndOf="@id/tv_link_title_coin_details_fragment"
+                tools:text="https://stackoverflow.com" />
 
             <TextView
                 android:id="@+id/tv_description_title_coin_details_fragment"

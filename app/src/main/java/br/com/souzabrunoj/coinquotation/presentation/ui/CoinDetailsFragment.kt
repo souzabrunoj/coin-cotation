@@ -3,15 +3,12 @@ package br.com.souzabrunoj.coinquotation.presentation.ui
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.text.Html
 import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.core.text.HtmlCompat
 import androidx.core.text.HtmlCompat.FROM_HTML_MODE_LEGACY
 import androidx.core.view.isVisible
@@ -29,10 +26,10 @@ import br.com.souzabrunoj.coinquotation.utils.roundToThreeDecimals
 import br.com.souzabrunoj.coinquotation.utils.roundToTwoDecimals
 import br.com.souzabrunoj.coinquotation.utils.showWithFade
 import br.com.souzabrunoj.coinquotation.utils.toDoubleFloatPairs
+import br.com.souzabrunoj.coinquotation.utils.toLocaleDateFormat
 import br.com.souzabrunoj.domain.model.CoinDetails
 import coil.load
 import dagger.hilt.android.AndroidEntryPoint
-import org.jsoup.Jsoup
 
 private const val ANIMATION_DURATION = 1000L
 
@@ -80,7 +77,7 @@ class CoinDetailsFragment : Fragment() {
             tvCoinNameSymbolCoinDetailsFragment.text = getString(R.string.symbol_string_template, coin.name, coin.symbol.uppercase())
             tvCurrentPriceCoinDetailsFragment.text = coin.marketData.currentPrice.eur.roundToThreeDecimals()
             tvCategoriesCoinDetailsFragment.text = coin.categories[0]
-            tvGenesisDateCoinDetailsFragment.text = coin.genesisDate.ifEmpty { "-" }
+            tvGenesisDateCoinDetailsFragment.text = coin.genesisDate.toLocaleDateFormat()
         }
     }
 
@@ -93,7 +90,7 @@ class CoinDetailsFragment : Fragment() {
 
     private fun handleLink(coin: CoinDetails) {
         binding.tvLinkCoinDetailsFragment.apply {
-            text = coin.links.homepage[0]
+            text = getString(R.string.hyperlink_string_template,coin.links.homepage[0])
             setOnClickListener {
                 val uri = Uri.parse(coin.links.homepage[0])
                 val intent = Intent(Intent.ACTION_VIEW, uri)
