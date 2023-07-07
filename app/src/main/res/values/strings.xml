@@ -9,4 +9,7 @@
     <string name="number_string_template">%s%%</string>
     <string name="hyperlink_string_template"><u>%s%%</u></string>
     <string name="symbol_string_template">%1$s [ %2$s ]</string>
+    <string name="two_string_template">%1$s %2$s</string>
+    <string name="filter">filter</string>
+
 </resources>

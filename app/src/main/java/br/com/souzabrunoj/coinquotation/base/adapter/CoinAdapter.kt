@@ -1,9 +1,10 @@
 package br.com.souzabrunoj.coinquotation.base.adapter
 
-import android.annotation.SuppressLint
+import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -20,6 +21,8 @@ typealias onItemClick = (Coin) -> Unit
 class CoinAdapter(private val onClick: onItemClick) : RecyclerView.Adapter<CoinAdapter.ViewHolder>() {
 
     private lateinit var binding: ItemCoinBinding
+    private lateinit var context: Context
+    private var coinSymbol: String = ""
 
     private val differCallback = object : DiffUtil.ItemCallback<Coin>() {
         override fun areItemsTheSame(oldItem: Coin, newItem: Coin): Boolean {
@@ -27,15 +30,16 @@ class CoinAdapter(private val onClick: onItemClick) : RecyclerView.Adapter<CoinA
         }
 
         override fun areContentsTheSame(oldItem: Coin, newItem: Coin): Boolean {
-            return oldItem == newItem
+            return oldItem.name == newItem.name
         }
     }
 
-    val differ = AsyncListDiffer(this, differCallback)
+    private val differ = AsyncListDiffer(this, differCallback)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         binding = ItemCoinBinding.inflate(inflater, parent, false)
+        context = parent.context
         return ViewHolder()
     }
 
@@ -46,14 +50,19 @@ class CoinAdapter(private val onClick: onItemClick) : RecyclerView.Adapter<CoinA
         holder.setIsRecyclable(false)
     }
 
+    fun updateData(list: List<Coin>, coinSymbol: String) {
+        differ.submitList(list)
+        this.coinSymbol = coinSymbol
+        notifyDataSetChanged()
+    }
+
     inner class ViewHolder : RecyclerView.ViewHolder(binding.root) {
 
-        @SuppressLint("SetTextI18n")
         fun bind(item: Coin) {
             binding.apply {
                 tvNameItemCoin.text = item.id
                 tvSymbolItemCoin.text = item.symbol.uppercase()
-                tvPriceItemCoin.text = "€${item.currentPrice.roundToThreeDecimals()}"
+                tvPriceItemCoin.text = context.getString(R.string.two_string_template, coinSymbol, item.currentPrice.roundToThreeDecimals())
                 ivCryptoItemCoin.load(item.image) {
                     crossfade(true)
                     crossfade(500)
@@ -61,7 +70,7 @@ class CoinAdapter(private val onClick: onItemClick) : RecyclerView.Adapter<CoinA
                     error(R.drawable.ic_bitcoin)
                 }
 
-                lcLineChartItemCoin.gradientFillColors = intArrayOf(Color.parseColor("#2a9085"), Color.TRANSPARENT)
+                lcLineChartItemCoin.gradientFillColors = intArrayOf(ContextCompat.getColor(context, R.color.chartBG), Color.TRANSPARENT)
                 lcLineChartItemCoin.animation.duration = ANIMATION_DURATION
                 lcLineChartItemCoin.animate(item.sparkline.price.toDoubleFloatPairs())
                 root.setOnClickListener { onClick(item) }
