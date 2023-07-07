@@ -1,4 +1,4 @@
-package br.com.souzabrunoj.coinquotation.base.adapter
+package br.com.souzabrunoj.coinquotation.presentation.adapter
 
 import android.content.Context
 import android.graphics.Color

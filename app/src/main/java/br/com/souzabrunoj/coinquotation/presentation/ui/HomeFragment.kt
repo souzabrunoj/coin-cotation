@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import br.com.souzabrunoj.coinquotation.R
-import br.com.souzabrunoj.coinquotation.base.adapter.CoinAdapter
+import br.com.souzabrunoj.coinquotation.presentation.adapter.CoinAdapter
 import br.com.souzabrunoj.coinquotation.databinding.FragmentHomeBinding
 import br.com.souzabrunoj.coinquotation.presentation.viewModel.CoinQuotationViewModel
 import br.com.souzabrunoj.coinquotation.utils.CoinName
